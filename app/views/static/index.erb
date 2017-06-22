@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <td id="long_link"><%= @url[:long_url] %></td>
-    <td><p id="short_link"><a id="to-copy" onclick="clickCounter()" href="<%= @url[:short_url] %>" target="_blank"><%= "http://127.0.0.1:9393/"+ @url[:short_url] %></a></p><button class="btn btn-info btn-xs" onclick="copyToClipboard('to-copy')">Copy Link</button></td>
+    <td><p id="short_link"><a id="to-copy" onclick="clickCounter()" href="<%= @url[:short_url] %>" target="_blank"><%= "http://mybitly88.herokuapp.com/"+ @url[:short_url] %></a></p><button class="btn btn-info btn-xs" onclick="copyToClipboard('to-copy')">Copy Link</button></td>
     <td><div id="result"><%= @url[:click_count] %></div></td>
   </tr>
 </table>

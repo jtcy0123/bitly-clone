@@ -13,7 +13,7 @@ $(document).ready(function() {
         $('#short_link').html($('<td>').append($('*', '#short_link')).html());
         $('#result').html($('<td>').append($('*', '#result')).html());
         $('#long_link').html(res.long_url)
-        $('#short_link').html('<a id="to-copy" onclick="clickCounter()" href="' + res.short_url + '" target="_blank">http://localhost:9393/' + res.short_url)
+        $('#short_link').html('<a id="to-copy" onclick="clickCounter()" href="' + res.short_url + '" target="_blank">http://mybitly88.herokuapp.com/' + res.short_url)
         $('#result').html(res.click_count)
         // $('tr:first-child').after('<tr><td>' + res.long_url + '</td><td>' + 'http://localhost:9393/' + res.short_url + '</td><td>'+ res.click_count +'</td></tr>')
       }
@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 function clickCounter() {
 	initial_clicks = parseInt($('#result').html())
-    $('#result').html($('<td>').append($('*', '#result')).html());
+    // $('#result').html($('<td>').append($('*', '#result')).html());
     clicks = initial_clicks + 1
     $('#result').html(clicks)
 }
