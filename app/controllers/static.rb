@@ -2,7 +2,7 @@ get '/' do
   if Url.all.length == 0
     @url = {long_url: "", short_url: "", click_count: ""}
   else
-    @url = Url.last
+    @url = Url.order('click_count DESC').first(3)
   end
   erb :"static/index"
 end
@@ -12,11 +12,12 @@ get '/signup' do
 end
 
 post '/create_user' do
-  p params
   @user = User.new(params.first(3).to_h)
   if @user.save
     redirect '/'
   else
+    status 400
+    return @user.errors.full_messages.join('. ')
     erb :"static/signup"
   end
 end
@@ -29,6 +30,7 @@ post '/shorten_link' do
     if @url.save
       return @url.to_json
     else
+      status 400
       return @url.errors.full_messages.join('. ')
     end
   end

@@ -5,23 +5,28 @@
 <div class="container-fluid">
 <h1>INNOVATION IN THE WORLD OF URL SHORTENERS</h1>
 <br>
-<br>
 <div class="row">
+<p id="error" style="color:#f00"></p>
 <form class="errorMessages col-xs-10" action="/shorten_link" method="post">
   <input class="form-control" type="text" name="long_url" placeholder="Paste a link here to shorten" value="" required>
   <input id="submit-btn" class="buttons btn btn-primary btn-block btn-md" type="submit" value="CLICK TO SHORTEN">
 </form></div>
 
+<p id="show"></p>
+
 <table>
+	<caption style="font-size: 20px"><b>TOP 3 POPULAR LINKS</b></caption>
   <tr>
     <th class="col-xs-6">Original Url</th>
     <th>Shorten Link</th>
     <th>Click Count</th>
   </tr>
-  <tr>
-    <td id="long_link"><%= @url[:long_url] %></td>
-    <td><p id="short_link"><a id="to-copy" onclick="clickCounter()" href="<%= @url[:short_url] %>" target="_blank"><%= "http://mybitly88.herokuapp.com/"+ @url[:short_url] %></a></p><button class="btn btn-info btn-xs" onclick="copyToClipboard('to-copy')">Copy Link</button></td>
-    <td><div id="result"><%= @url[:click_count] %></div></td>
+  <% @url.each do |u| %>
+  <tr id="tbody">
+    <td id="long_link"><%= u.long_url %></td>
+    <td id="short_link"><a id="to-copy" href="<%= u.short_url %>" target="_blank"><%= "http://mybitly88.herokuapp.com/"+ u.short_url %></a><br></td>
+    <td id="result"><%= u.click_count %></td>
   </tr>
+  <% end %>
 </table>
 </div>

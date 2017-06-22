@@ -9,28 +9,52 @@ $(document).ready(function() {
       success: function(data) {
         console.log(data)
         res = JSON.parse(data)
-        $('#long_link').html($('<td>').append($('*', '#long_link')).html());
-        $('#short_link').html($('<td>').append($('*', '#short_link')).html());
-        $('#result').html($('<td>').append($('*', '#result')).html());
-        $('#long_link').html(res.long_url)
-        $('#short_link').html('<a id="to-copy" onclick="clickCounter()" href="' + res.short_url + '" target="_blank">http://mybitly88.herokuapp.com/' + res.short_url)
-        $('#result').html(res.click_count)
-        // $('tr:first-child').after('<tr><td>' + res.long_url + '</td><td>' + 'http://localhost:9393/' + res.short_url + '</td><td>'+ res.click_count +'</td></tr>')
+     
+        $('#error').fadeOut()
+
+        tocopy = "http://mybitly88.herokuapp.com/" + res.short_url
+        $('<span>YOUR SHORTEN LINK : </span><span style="border: 2px solid gray;padding: 0px 20px;font-size:20px;background-color:#000"><a onclick="clickCounter()" href="' + res.short_url + '" target="_blank">http://mybitly88.herokuapp.com/' + res.short_url + '</a></span><button class="btn btn-info btn-xs" onclick="copyToClipboard(tocopy)">Copy Link</button>').hide().appendTo('#show').fadeIn(1000);
+      },
+
+      error: function(data) {
+      	$('#error').html(data.responseText)
+      }
+    })
+  })
+  
+  //attach click event onto a href links (inside table)
+  $('#tbody td:nth-child(2) a').on('click', function(e){
+    // ele is the click count td next to the clicked link
+    ele = $(e.target).parent().next()
+    // current click count + 1
+    num = parseInt(ele.text()) + 1 
+    // update click count value
+    ele.text(num)
+  })
+
+    $('form').on('submit', function(event) {
+    $.ajax({
+      url: '/create_user',
+      method: 'post',
+      data: $(this).serialize(),
+
+      error: function(data) {
+      	$('.errorMessages').html(data.responseText)
       }
     })
   })
 });
 
-function clickCounter() {
-	initial_clicks = parseInt($('#result').html())
-    // $('#result').html($('<td>').append($('*', '#result')).html());
-    clicks = initial_clicks + 1
-    $('#result').html(clicks)
-}
+// function clickCounter() {
+// 	initial_clicks = parseInt($('#result').html())
+//     clicks = initial_clicks + 1
+//     $('#result').html(clicks)
+// }
 
 function copyToClipboard(elementId) {
 	var aux = document.createElement("input");
-  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  // aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  aux.setAttribute("value", elementId);
   document.body.appendChild(aux);
   aux.select();
   document.execCommand("copy");

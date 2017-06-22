@@ -1,5 +1,6 @@
 body {
-		background-image: url(https://media.giphy.com/media/uH7JvseKVMojS/giphy.gif);
+		/*background-image: url(https://media.giphy.com/media/uH7JvseKVMojS/giphy.gif);*/
+        background-image: url(/img/shazia-mirza-222594.jpg);
 		background-attachment: fixed;
 	    background-position: center;
 	    background-repeat: no-repeat;
@@ -21,9 +22,7 @@ form {
 	margin-left: 400px;
 	margin-right: 400px;
 }*/
-#short_link {
-	background-color: #ffffff;
-}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -38,4 +37,8 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #000000;
+}
+
+#signup {
+  text-align: left;
 }
