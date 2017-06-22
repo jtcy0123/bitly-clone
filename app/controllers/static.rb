@@ -1,5 +1,9 @@
 get '/' do
-  @url = Url.last
+  if Url.all.length == 0
+    @url = {long_url: "", short_url: "", click_count: ""}
+  else
+    @url = Url.last
+  end
   erb :"static/index"
 end
 

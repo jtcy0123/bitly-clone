@@ -1,8 +1,4 @@
 
-<script>
-	var click_count = <%= @url.click_count %>;
-	
-</script>
 
 <br><button class="btn" type="button"><a href="/signup">SIGN UP</a></button>
 
@@ -23,9 +19,9 @@
     <th>Click Count</th>
   </tr>
   <tr>
-  	<td id="long_link"><%= @url.long_url %></td>
-  	<td><p id="short_link"><a id="to-copy" onclick="clickCounter()" href="<%= @url.short_url %>" target="_blank"><%= "http://127.0.0.1:9393/"+ @url.short_url %></a></p><button class="btn btn-info btn-xs" onclick="copyToClipboard('to-copy')">Copy Link</button></td>
-  	<td><div id="result"><%= @url.click_count%></div></td>
+  	<td id="long_link"><%= @url[:long_url] %></td>
+  	<td><p id="short_link"><a id="to-copy" onclick="clickCounter()" href="<%= @url[:short_url] %>" target="_blank"><%= "http://127.0.0.1:9393/"+ @url[:short_url] %></a></p><button class="btn btn-info btn-xs" onclick="copyToClipboard('to-copy')">Copy Link</button></td>
+  	<td><div id="result"><%= @url[:click_count] %></div></td>
   </tr>
 </table>
 </div>
