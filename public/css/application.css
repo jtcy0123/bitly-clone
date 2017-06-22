@@ -1,0 +1,41 @@
+body {
+		background-image: url(https://media.giphy.com/media/uH7JvseKVMojS/giphy.gif);
+		background-attachment: fixed;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+		color: #ffffff;
+		text-align: center;
+}
+h1 {
+	font-family: 'Frijole', cursive;
+	font-size: 50px;
+	margin-top: 50px;
+}
+form {
+	margin-left: 120px;
+}
+/*p {
+	font-family: 'Architects Daughter', cursive;
+	font-size: 30px;
+	margin-left: 400px;
+	margin-right: 400px;
+}*/
+#short_link {
+	background-color: #ffffff;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #000000;
+}
