@@ -11,7 +11,7 @@ $(document).ready(function() {
         res = JSON.parse(data)
      
         $('#error').fadeOut()
-
+        
         tocopy = "http://mybitly88.herokuapp.com/" + res.short_url
         $('<span>YOUR SHORTEN LINK : </span><span style="border: 2px solid gray;padding: 0px 20px;font-size:20px;background-color:#000"><a onclick="clickCounter()" href="' + res.short_url + '" target="_blank">http://mybitly88.herokuapp.com/' + res.short_url + '</a></span><button class="btn btn-info btn-xs" onclick="copyToClipboard(tocopy)">Copy Link</button>').hide().appendTo('#show').fadeIn(1000);
       },
