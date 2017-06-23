@@ -32,7 +32,7 @@ $(document).ready(function() {
     ele.text(num)
   })
 
-    $('form').on('submit', function(event) {
+    $('#signup').on('submit', function(event) {
     $.ajax({
       url: '/create_user',
       method: 'post',
